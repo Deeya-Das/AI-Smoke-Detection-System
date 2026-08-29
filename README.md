@@ -8,10 +8,12 @@ This was built as a group project. We wanted to explore how a basic AI safety-mo
 
 ## Team
 
-- [Your Name]
-- [Teammate 2]
-- [Teammate 3]
-- (add the rest of the team here)
+- Deeya Das
+- Disha Handique
+- Prastuti Saikia
+- Angkur Kakati
+- Chanakya Deka
+- Karan Kakati
 
 ## The problem we're trying to solve
 
