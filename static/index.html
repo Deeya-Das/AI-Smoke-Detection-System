@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Based Fire &amp; Smoke Detection System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="header-brand">
+      <span class="header-brand-mark"></span>
+      <span class="header-brand-text">IOCL</span>
+    </div>
+    <div class="header-title-group">
+      <h1 class="header-title">AI-Based Fire &amp; Smoke Detection System</h1>
+      <p class="header-subtitle">Refinery Safety Monitoring</p>
+    </div>
+    <span class="header-clock" id="headerClock">--:--:--</span>
+  </header>
+
+  <div class="app-body">
+
+    <nav class="sidebar">
+      <a class="sidebar-link active" href="#dashboard">
+        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="3" y="3" width="7" height="9" rx="1.5"></rect>
+          <rect x="14" y="3" width="7" height="5" rx="1.5"></rect>
+          <rect x="14" y="12" width="7" height="9" rx="1.5"></rect>
+          <rect x="3" y="16" width="7" height="5" rx="1.5"></rect>
+        </svg>
+        <span>Dashboard</span>
+      </a>
+      <a class="sidebar-link" href="#uploadPanel">
+        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M12 16V4"></path>
+          <path d="M6.5 9.5 12 4l5.5 5.5"></path>
+          <path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"></path>
+        </svg>
+        <span>Upload Image</span>
+      </a>
+    </nav>
+
+    <main class="main-area" id="dashboard">
+
+      <section class="panel upload-panel" id="uploadPanel">
+        <div class="panel-header">
+          <h2>Upload Image</h2>
+        </div>
+
+        <div class="upload-controls">
+          <label class="choose-btn" for="imageInput">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 16V4"></path>
+              <path d="M6.5 9.5 12 4l5.5 5.5"></path>
+              <path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"></path>
+            </svg>
+            Choose Image
+          </label>
+          <input type="file" id="imageInput" accept="image/*" hidden>
+          <span class="file-name" id="fileName">No file chosen</span>
+        </div>
+
+        <div class="preview-frame">
+          <span class="corner corner-tl"></span>
+          <span class="corner corner-tr"></span>
+          <span class="corner corner-bl"></span>
+          <span class="corner corner-br"></span>
+          <div class="preview-empty" id="previewEmpty">No Image Selected</div>
+          <img class="preview-image hidden" id="previewImage" alt="Selected preview">
+        </div>
+      </section>
+
+      <section class="panel result-panel">
+        <div class="panel-header">
+          <h2>Detection Result</h2>
+        </div>
+
+        <div class="result-banner waiting" id="resultBanner">
+          <svg class="banner-icon" id="bannerIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M12 7v6l4 2"></path>
+          </svg>
+          <span class="banner-text" id="bannerText">Waiting for Detection</span>
+        </div>
+
+        <div class="result-details">
+          <div class="detail-row">
+            <span class="detail-label">Confidence</span>
+            <span class="detail-value" id="confidenceValue">--</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Current Time</span>
+            <span class="detail-value" id="detectionTime">--</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Alarm Status</span>
+            <span class="detail-value alarm-off" id="alarmStatus">OFF</span>
+          </div>
+        </div>
+
+        <button class="stop-alarm-btn hidden" id="stopAlarmBtn">Stop Alarm</button>
+      </section>
+
+    </main>
+
+  </div>
+
+  <footer class="action-bar">
+    <button class="action-btn detect-btn" id="detectBtn" disabled>Detect Fire</button>
+    <button class="action-btn clear-btn" id="clearBtn">Clear</button>
+    <button class="action-btn exit-btn" id="exitBtn">Exit</button>
+  </footer>
+
+  <audio id="alarmAudio" src="alarm.wav" loop></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
