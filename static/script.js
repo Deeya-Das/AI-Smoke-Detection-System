@@ -146,10 +146,16 @@ function clearDashboard() {
 
 function exitApp() {
   setAlarm(false);
-  const closed = window.close();
-  if (window.top === window.self) {
-    alert('You can now close this browser tab.');
-  }
+
+  const confirmed = confirm('Exit the Fire & Smoke Detection System?');
+  if (!confirmed) return;
+
+  document.body.innerHTML = `
+    <div class="exit-screen">
+      <p class="exit-message">Session Ended</p>
+      <p class="exit-submessage">You can safely close this browser tab now.</p>
+    </div>
+  `;
 }
 
 imageInput.addEventListener('change', handleImageSelect);
